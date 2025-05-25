@@ -1,0 +1,36 @@
+# Communication Rules
+- Always start messages with "Hoo"
+- Be concise and clear in responses
+- Provide explanations for suggested changes
+
+# Code Style Rules
+- Use Swift and SwiftUI for all iOS development
+- Follow Apple's Swift API Design Guidelines
+- Use meaningful variable and function names
+- Keep functions small and focused
+- Use proper indentation (4 spaces)
+
+# Documentation Rules
+- Add debug logs for important operations
+- Include comments explaining complex logic
+- Document public interfaces and methods
+- Use // MARK: for code section organization
+
+# SwiftUI Best Practices
+- Use PreviewProvider for all Views
+- Keep View files under 300 lines when possible
+- Extract reusable components into separate views
+- Use proper view modifiers ordering
+
+# Project Structure
+- Organize code by feature modules
+- Keep resources in appropriate folders
+- Follow MVVM architecture pattern
+- Use MVVM repository architecture with Dependency Injection
+- Separate business logic from UI code
+
+# Testing Rules
+- Write unit tests for business logic
+- Include UI tests for critical flows
+- Use meaningful test names
+- Follow Arrange-Act-Assert pattern

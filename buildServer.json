@@ -1,0 +1,19 @@
+{
+	"name": "xcode build server",
+	"version": "0.2",
+	"bspVersion": "2.0",
+	"languages": [
+		"c",
+		"cpp",
+		"objective-c",
+		"objective-cpp",
+		"swift"
+	],
+	"argv": [
+		"/opt/homebrew/bin/xcode-build-server"
+	],
+	"workspace": "/Users/abhilashghogale/Applications/MyFood-AI/MyFood-AI.xcodeproj/project.xcworkspace",
+	"build_root": "/Users/abhilashghogale/Library/Developer/Xcode/DerivedData/MyFood-AI-chugdqmddnouwscddzhazyzydhfn",
+	"scheme": "MyFood-AI",
+	"kind": "xcode"
+}
