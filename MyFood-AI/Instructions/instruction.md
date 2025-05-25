@@ -11,8 +11,8 @@ MyFoodAI allows users to capture food images, detect if the content is food, ret
 Modules to Implement
 1. Image Capture & Picker
 Use UIImagePickerController or PHPickerViewController with SwiftUI.
-
 Support camera and gallery selection.
+Allow user to edit or crop image after capture.
 
 2. Food Detection with Core ML
 Integrate VNCoreMLModel with Core ML model (e.g., Food101).

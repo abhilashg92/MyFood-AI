@@ -2,21 +2,26 @@ import SwiftUI
 import UIKit
 
 // MARK: - ImageCaptureView
-/// Main view for capturing or selecting food images
+/// Main view for capturing or selecting food images with cropping capability
 struct ImageCaptureView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerPresented = false
+    @State private var isImageCropperPresented = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
+    @State private var croppedImage: UIImage?
     
     // MARK: - View Body
     var body: some View {
         VStack(spacing: 20) {
-            if let image = selectedImage {
+            if let image = croppedImage ?? selectedImage {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
                     .frame(maxHeight: 300)
                     .cornerRadius(12)
+                    .onTapGesture {
+                        isImageCropperPresented = true
+                    }
             } else {
                 Image(systemName: "photo.fill")
                     .resizable()
@@ -50,6 +55,19 @@ struct ImageCaptureView: View {
         .padding()
         .sheet(isPresented: $isImagePickerPresented) {
             ImagePicker(selectedImage: $selectedImage, sourceType: sourceType)
+        }
+        .sheet(isPresented: $isImageCropperPresented) {
+            if let image = selectedImage {
+                ImageEditorView(image: image, editedImage: $croppedImage)
+            }
+        }
+        .onChange(of: selectedImage) { _ in
+            // Reset cropped image when new image is selected
+            croppedImage = nil
+            // Automatically show cropper when new image is selected
+            if selectedImage != nil {
+                isImageCropperPresented = true
+            }
         }
     }
     

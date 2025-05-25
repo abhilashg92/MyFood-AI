@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 // MARK: - ImagePicker
-/// A SwiftUI wrapper for UIImagePickerController that handles camera and photo library image selection
+/// A SwiftUI wrapper for UIImagePickerController that handles camera and photo library image selection with editing capabilities
 struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) private var presentationMode
     @Binding var selectedImage: UIImage?
@@ -20,8 +20,11 @@ struct ImagePicker: UIViewControllerRepresentable {
             _ picker: UIImagePickerController,
             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
         ) {
-            if let image = info[.originalImage] as? UIImage {
-                parent.selectedImage = image
+            // Prefer edited image if available, otherwise use original
+            if let editedImage = info[.editedImage] as? UIImage {
+                parent.selectedImage = editedImage
+            } else if let originalImage = info[.originalImage] as? UIImage {
+                parent.selectedImage = originalImage
             }
             parent.presentationMode.wrappedValue.dismiss()
         }
@@ -39,6 +42,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.delegate = context.coordinator
+        picker.allowsEditing = true // Enable built-in editing
         return picker
     }
     
