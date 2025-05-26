@@ -11,17 +11,10 @@ MyFoodAI allows users to capture food images, detect if the content is food, ret
 Modules to Implement
 1. Image Capture & Picker
 Use UIImagePickerController or PHPickerViewController with SwiftUI.
-Support camera and gallery selection.
-Allow user to edit or crop image after capture.
+Support camera fearure
 
-2. Food Detection with Core ML
-Integrate VNCoreMLModel with Core ML model (e.g., Food101).
 
-Detect food name.
-
-Show "No food item found" if nothing is detected.
-
-3. AI-Powered Nutrition Info (OpenAI)
+2. AI-Powered Nutrition Info (OpenAI)
 Call OpenAI GPT API with detected food name.
 
 Expected keys:
@@ -36,7 +29,7 @@ API rate limits
 
 Invalid responses
 
-4. Result Display
+3. Result Display
 Display:
 
 Image
@@ -49,9 +42,8 @@ Fat, Carbs, Protein
 
 Timestamp
 
-5. History Logging (Secure & Offline)
-Choose either: Realm, Core Data
+4. History Logging (Secure & Offline)
+Log on home screen below camera button
+Choose either: Realm
 
-6. API Key Management (Secure)
-🔒 Do NOT hardcode keys or commit them to Git
 
